@@ -3,7 +3,11 @@
 #include <limits>
 
 using namespace std;
-
+/*
+  Finn McKinley
+  9/25/19
+  A Guessing Game
+ */
 int main() {
   bool running = true;
   //Keep track of if the game is running
@@ -24,7 +28,6 @@ int main() {
       //Tell them to guess a # between 0 and 100
       cin >> input;
       //Take the input
-      guess++;
       //Add 1 to guess
       if (cin.fail()) {//Code from Stack Overflow, answer from user Doug T.
 	//https://stackoverflow.com/questions/5864540/infinite-loop-with-cin-when-typing-string-while-a-number-is-expected
@@ -38,10 +41,14 @@ int main() {
       if (input < RandNum) {//If the inputted # is < the random
 	cout << "Your guess was too low." << endl;
 	//Tell the user that their guess was too low
+	guess++;
+	cout << guess << endl;
       }
       else if (input > RandNum) {//Else if inputted # is > the random #
 	cout << "Your guess was too high." << endl;
 	//Tell the user that their guess was too high
+	guess++;
+	cout << guess << endl;
       }
       else if (input == RandNum) {//Else if inputted # == the random #
 	cout << "Your guess was correct!" << endl;
@@ -67,6 +74,12 @@ int main() {
 	  //Ask the user again if they want to play again
 	  cin >> playAgain;
 	  //Take the user's input
+	  if (playAgain == 'Y') {
+	    running = true;
+	  }
+	  else if (playAgain == 'N') {
+	    running = false;
+	  }
 	}
       }
     }
